@@ -1,5 +1,5 @@
 import { DailyTile } from "./DailyTile.jsx"
-
+import { useRef,useEffect } from "react";
 const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
     const MainForecastScrollBox = useRef(null);
     
@@ -28,13 +28,13 @@ const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
     
     return(
         <div>
-      <div class="MainForecastHeading Background">
+      <div className="MainForecastHeading Background">
         <h3>
-          This is the Weekly Forecast for {cityName} ({data.timezone} - {data.timezone_abbreviation})
+          This is the Weekly Forecast for ({cityName}) ({data.timezone} - {data.timezone_abbreviation})
         </h3>
       </div>
-      <div class="ButtonParentDiv">
-      <button class="Button Background" onClick={refreshHandler}>
+      <div className="ButtonParentDiv">
+      <button className="Button Background" onClick={refreshHandler}>
         <svg
           viewBox="0 0 512 512"
           width="25%"
@@ -46,7 +46,7 @@ const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
         Refresh Data
       </button>
       <button
-        class="Background Button"
+        className="Background Button"
         onClick={() => {
           dialog.current.showModal();
         }}
@@ -57,8 +57,8 @@ const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
         Select City
       </button>
         </div>
-      <div class="MainForecastParentDiv">
-        <button class="left" onClick={() => scroller("left")}>
+      <div className="MainForecastParentDiv">
+        <button className="left" onClick={() => scroller("left")}>
           <svg
             viewBox="0 0 256 512"
             width="40"
@@ -68,9 +68,9 @@ const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
             <path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" />
           </svg>
         </button>
-        <div class="MainForecastDiv" ref={MainForecastScrollBox}>
+        <div className="MainForecastDiv" ref={MainForecastScrollBox}>
           {data.daily.time.map((day, index) => (
-            <DailyTile
+            <DailyTile key={index}
               tempInfo={[
                 Object.values(data.daily)[1][index],
                 Object.values(data.daily)[2][index],
@@ -92,7 +92,7 @@ const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
             />
           ))}
         </div>
-        <button class="right" onClick={() => scroller("right")}>
+        <button className="right" onClick={() => scroller("right")}>
           <svg
             viewBox="0 0 256 512"
             width="40"

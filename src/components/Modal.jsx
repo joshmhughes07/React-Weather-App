@@ -71,8 +71,8 @@ const CityListArea = ({ cities, modalRef, handler }) => {
 
   return (
     <div className="CityList">
-      {cities?.map((entry) => (
-        <div className="city" onClick={() => handleCitySelect(entry)}>
+      {cities?.map((entry,index) => (
+        <div className="city" key={index} onClick={() => handleCitySelect(entry)}>
           <h5>{entry.name}</h5>
           <div className="cityInfo">
             {entry.latitude} {entry.longitude} {entry.admin1}{" "}

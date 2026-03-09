@@ -376,7 +376,7 @@ const DailyTile = ({
 
   return (
     <div
-      class="DailyForecastTile"
+      className="DailyForecastTile"
       onClick={() => {
         clickHandler(date);
       }}
@@ -384,7 +384,7 @@ const DailyTile = ({
       <h3>{isToday ? "Today" : date[0]}</h3>
       {indexOfIcons[weatherCode[0]]}
 
-      <div class="DailyForecastInner">
+      <div className="DailyForecastInner">
         <div>
           <svg
             viewBox="0 0 512 512"

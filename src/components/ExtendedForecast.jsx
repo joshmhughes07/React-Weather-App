@@ -1,3 +1,5 @@
+import { useRef,useEffect } from "react";
+
 const ExtendedForecast = ({ data }) => {
 
 const tempCanvasEl = useRef(null);

@@ -60,9 +60,9 @@ function App() {
       console.log(error);
     }
   };
-  useEffect(() => {
-    if (localStorage.getItem("weatherDataCity")) {
-      console.log("Previously Selected City Found.");
+  useEffect(() => {  
+    if (localStorage.getItem("weatherDataCity")==true) { 
+      console.log("Previously Selected City Found. " + localStorage.getItem('weatherDataCity'));
       setCurrentCity(JSON.parse(localStorage.getItem("weatherDataCity")));
     } else {
       //No previous Cities. Open city selection screen
@@ -96,7 +96,7 @@ function App() {
     {detailedForecastData.length == 0 ? (
         <PlaceHolder />
       ) : (
-        <ExpandedForecast data={detailedForecastData} />
+        <ExtendedForecast data={detailedForecastData} />
       )}
    </div>
   )
