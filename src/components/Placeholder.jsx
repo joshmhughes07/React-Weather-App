@@ -1,3 +1,5 @@
+import "./styling/Placeholder.css"
+
 const PlaceHolder = () => {
   return (
     <div className="PlaceHolder Background">

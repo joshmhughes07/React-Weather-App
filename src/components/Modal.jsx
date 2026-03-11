@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./styling/ModalStyling.css"
 
 const Modal = ({ dialog, citySetter }) => {
   const [searchResults, setSearchResults] = useState({ results: [] });
