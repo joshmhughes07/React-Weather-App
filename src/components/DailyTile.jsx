@@ -1,3 +1,5 @@
+import "./styling/DailyTileStyling.css"
+
 const DailyTile = ({
   tempInfo,
   rainInfo,

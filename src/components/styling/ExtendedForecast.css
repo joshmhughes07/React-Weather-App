@@ -1,0 +1,30 @@
+.extendedForecastParentDiv{
+  display:flex;
+  flex-flow:row wrap;
+  margin:10px;
+  padding:5px;
+
+}
+
+.extendedForecastParentDiv h3{
+    width:100%;
+    text-align:center;
+}
+
+.graphCanvasDiv{
+
+  margin:10px;
+  width:45%
+}
+
+@media screen and (max-width:755px){
+      
+  .extendedForecastParentDiv{
+    
+    flex-flow:column wrap;
+  }
+  .graphCanvasDiv{
+    width:95%;
+  }
+  
+}

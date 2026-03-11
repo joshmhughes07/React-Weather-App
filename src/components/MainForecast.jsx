@@ -1,5 +1,7 @@
 import { DailyTile } from "./DailyTile.jsx"
 import { useRef,useEffect } from "react";
+import "./styling/MainForecastStyling.css"
+
 const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
     const MainForecastScrollBox = useRef(null);
     

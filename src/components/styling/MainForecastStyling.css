@@ -1,0 +1,55 @@
+.MainForecastDiv {
+  background: var(--MilkyBackground);
+  height: 300px;
+  width: 660px;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+  
+}
+
+.MainForecastDiv::-webkit-scrollbar{
+  display:none;
+}
+
+.MainForecastParentDiv {
+  display: flex;
+  width:764px;
+  margin:0px auto;
+  border-radius:20px;
+  box-shadow:var(--BoxShadowValues);
+  
+}
+
+.MainForecastParentDiv button {
+  background: var(--MilkyBackground);
+  border: none;
+}
+.MainForecastParentDiv .left {
+  border-radius: 20px 0px 0px 20px;
+}
+.MainForecastParentDiv .right {
+  border-radius: 0px 20px 20px 0px;
+}
+
+@media screen and (max-width:760px){
+  .MainForecastParentDiv{
+    width:544px;
+  }
+}
+
+@media screen and (max-width:590px){
+  .MainForecastParentDiv{
+    width:324px;
+  }
+}
+
+.MainForecastHeading{
+  padding:10px;
+  margin:5px;
+  display:flex;
+  flex-flow:column wrap;
+  align-items:center;
+}
