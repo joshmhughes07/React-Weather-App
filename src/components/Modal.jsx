@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState,useRef, useEffect } from "react";
 import "./styling/ModalStyling.css"
 
 const Modal = ({ dialog, citySetter }) => {
   const [searchResults, setSearchResults] = useState({ results: [] });
+  const inputEl = useRef(null)
 
   const handleSearch = (event) => {
     asyncSearch(event.target.value);
@@ -21,6 +22,13 @@ const Modal = ({ dialog, citySetter }) => {
       console.log(error);
     }
   };
+   useEffect(()=>{
+      inputEl.current.focus()
+
+
+    
+   })
+
 
   return (
     <div>
@@ -32,7 +40,9 @@ const Modal = ({ dialog, citySetter }) => {
         <button
           className="close"
           onClick={() => {
+            
             dialog.current.close();
+            
           }}
         >
           <svg
@@ -52,6 +62,7 @@ const Modal = ({ dialog, citySetter }) => {
           type="search"
           placeholder="City or Town."
           onChange={handleSearch}
+          ref={inputEl}
         ></input>
 
         <CityListArea
