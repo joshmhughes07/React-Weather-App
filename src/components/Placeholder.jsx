@@ -1,4 +1,4 @@
-import "./styling/Placeholder.css"
+import "./styling/PlaceholderStyling.css"
 
 const PlaceHolder = () => {
   return (
