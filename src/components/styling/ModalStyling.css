@@ -35,8 +35,22 @@
 .locationModal .close svg:hover{
   fill:crimson;
 }
+.locationModal label {
+  padding:5px;
+  padding-top:0px;
+  font-size: small;
+ text-align: left;
+ display:none;
+}
 
+.locationModal input:invalid{
+  border:1px solid crimson;
+}
 
+.locationModal input:invalid + label{
+  display:block;
+  color:crimson;
+}
 
 .CityList {
 /*   width:100%;*/

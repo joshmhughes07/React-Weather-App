@@ -1,11 +1,14 @@
-import { useState,useRef,useEffect } from 'react'
+import { useState,useRef,useEffect,use,Suspense } from 'react'
 import './App.css'
 import { MainForecast } from "./components/MainForecast.jsx"
 import { PlaceHolder } from "./components/Placeholder.jsx"
 import { ExtendedForecast } from "./components/ExtendedForecast.jsx"
 import { Modal } from "./components/Modal.jsx"
+import { Loading } from './components/Loading.jsx'
 
-
+//need a way to select cities if no data is available -- refactor the buttons out of mainForecast to use when mainforecast doesnt load due to errors or no city selection ()
+//mainforecast has more than JUST mainforecast duties (wrong)
+//loading component used when needed using conditional rendering 
 function App() {
   
    const [weatherData, setWeatherData] = useState(null);
@@ -83,8 +86,9 @@ function App() {
    <div>
     <Modal dialog={dialog} citySetter={citySetter}></Modal>
     {weatherData == null ? (
-        "No Data"
+        <Loading/>
       ) : (
+      
         <MainForecast
           data={weatherData}
           cityName={currentCity?.name}
@@ -92,7 +96,7 @@ function App() {
           handler={handleForecastChange}
           refreshHandler={asyncReq}
         />
-      )}
+ )}
     {detailedForecastData.length == 0 ? (
         <PlaceHolder />
       ) : (

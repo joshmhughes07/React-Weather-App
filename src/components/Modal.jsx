@@ -1,5 +1,7 @@
-import { useState,useRef, useEffect } from "react";
+import { useState,useRef, useEffect} from "react";
 import "./styling/ModalStyling.css"
+import { Loading } from "./Loading";
+
 
 const Modal = ({ dialog, citySetter }) => {
   const [searchResults, setSearchResults] = useState({ results: [] });
@@ -56,14 +58,17 @@ const Modal = ({ dialog, citySetter }) => {
           </svg>
         </button>
         <h3>Select Location: </h3>
+        
         <input
           id="SearchQueryInputId"
           className="searchQueryInput"
           type="search"
           placeholder="City or Town."
           onChange={handleSearch}
+          minLength={3}
           ref={inputEl}
-        ></input>
+        ></input> 
+        <label htmlFor="SearchQueryInputId">Minimum Of 3 Characters</label>
 
         <CityListArea
           cities={searchResults.results}
@@ -76,13 +81,14 @@ const Modal = ({ dialog, citySetter }) => {
 };
 
 const CityListArea = ({ cities, modalRef, handler }) => {
+  //needs a variable that calls use(asyncSearch(cities)) which shuold 
   const handleCitySelect = (city) => {
     handler(city);
     modalRef.current.close();
   };
 
   return (
-    <div className="CityList">
+    cities?<div className="CityList">
       {cities?.map((entry,index) => (
         <div className="city" key={index} onClick={() => handleCitySelect(entry)}>
           <h5>{entry.name}</h5>
@@ -92,7 +98,7 @@ const CityListArea = ({ cities, modalRef, handler }) => {
           </div>
         </div>
       ))}
-    </div>
+    </div>:<Loading/>
   );
 };
 
