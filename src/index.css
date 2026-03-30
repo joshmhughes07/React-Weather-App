@@ -13,7 +13,13 @@
 }
 #root{
   min-height:100vh;
+  display:flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-items:start ;
+  margin:5px;
 }
+
 
 
 * {
@@ -24,7 +30,6 @@
 
 body {
    background: linear-gradient(200deg, lightblue, rgb(133, 176, 180));
-   min-width:350px;
 }
 
 .Background{
@@ -34,10 +39,6 @@ body {
 }
 
 
-/*Move to separate file*/
-.canvasEl{
-  object-fit:none;
-}
 
 .ButtonParentDiv{
   width:100%;
