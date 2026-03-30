@@ -1,6 +1,7 @@
 import { DailyTile } from "./DailyTile.jsx"
 import { useRef,useEffect } from "react";
-import "./styling/MainForecastStyling.css"
+import "./styling/MainForecastStyling.css";
+import { Button } from "./Button.jsx";
 
 const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
     const MainForecastScrollBox = useRef(null);
@@ -36,7 +37,7 @@ const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
         </h3>
       </div>
       <div className="ButtonParentDiv">
-      <button className="Button Background" onClick={refreshHandler}>
+      <Button onClick={refreshHandler}>
         <svg
           viewBox="0 0 512 512"
           width="25%"
@@ -46,9 +47,9 @@ const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
           <path d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z" />
         </svg>{" "}
         Refresh Data
-      </button>
-      <button
-        className="Background Button"
+      </Button>
+      <Button
+        
         onClick={() => {
           dialog.current.showModal();
         }}
@@ -57,7 +58,7 @@ const MainForecast = ({ data, cityName, dialog, handler, refreshHandler })=>{
           <path d="M349.565 98.783C295.978 98.783 251.721 64 184.348 64c-24.955 0-47.309 4.384-68.045 12.013a55.947 55.947 0 0 0 3.586-23.562C118.117 24.015 94.806 1.206 66.338.048 34.345-1.254 8 24.296 8 56c0 19.026 9.497 35.825 24 45.945V488c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-94.4c28.311-12.064 63.582-22.122 114.435-22.122 53.588 0 97.844 34.783 165.217 34.783 48.169 0 86.667-16.294 122.505-40.858C506.84 359.452 512 349.571 512 339.045v-243.1c0-23.393-24.269-38.87-45.485-29.016-34.338 15.948-76.454 31.854-116.95 31.854z" />
         </svg>{" "}
         Select City
-      </button>
+      </Button>
         </div>
       <div className="MainForecastParentDiv">
         <button className="left" onClick={() => scroller("left")}>

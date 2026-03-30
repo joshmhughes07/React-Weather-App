@@ -42,16 +42,6 @@ body {
 }
 
 
-.Button {
-  height: 26px;
-  width: 150px;
-  border: none;
-  margin: 10px;
-  font-weight: 600;
-}
-.Button:hover {
-  background: var(--MilkyBackgroundHover);
-}
 
 
 
