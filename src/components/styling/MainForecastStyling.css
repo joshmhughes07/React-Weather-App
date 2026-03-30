@@ -34,7 +34,7 @@
   border-radius: 0px 20px 20px 0px;
 }
 
-@media screen and (max-width:760px){
+@media screen and (max-width:810px){
   .MainForecastParentDiv{
     width:544px;
   }
