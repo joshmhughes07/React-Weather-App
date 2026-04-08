@@ -54,7 +54,6 @@ function App() {
   };
   const asyncReq = async () => {
     try {
-      console.log(`${unitPrefs.current[0].value}${unitPrefs.current[1].value}${unitPrefs.current[2].value}`)
       const response = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${currentCity?.latitude}&longitude=${currentCity?.longitude}&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code,wind_speed_10m_max&hourly=temperature_2m,precipitation_probability,wind_speed_10m,showers,rain&timezone=auto${unitPrefs.current[0].value}${unitPrefs.current[1].value}${unitPrefs.current[2].value}`
       );
