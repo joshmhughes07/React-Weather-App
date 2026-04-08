@@ -3,8 +3,8 @@
   --MilkyBackground: rgba(255, 255, 255, 0.6);
   --MilkyBackgroundHover: rgba(235, 235, 235, 0.6);
   --BoxShadowValues:0px 0px 5px var(--MilkyBackground);
-  --OpagueMilkyBackground:rgb(215, 222, 224)
-  
+  --OpagueMilkyBackground:rgb(215, 222, 224);
+  --LightGreyBorder:rgb(161, 160, 160);
   /* color-scheme: light dark; */
   /* font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -46,7 +46,9 @@ body {
   justify-content:space-evenly;
 }
 
-
+.hidden{
+  display:none;
+}
 
 
 

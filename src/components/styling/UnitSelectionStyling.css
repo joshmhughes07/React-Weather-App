@@ -1,0 +1,37 @@
+@import "../../index.css";
+
+.unitSelection{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width:80%;
+    padding:2%;
+}
+
+.OuterDD{
+    border:2px solid rgb(161, 160, 160); 
+    display:flex;
+    flex-direction: column;
+}
+
+.InnerDD:not(.hidden){
+    display:flex;
+    flex-direction: column;
+    position:relative;
+
+}
+.InnerDD:not(.hidden) > :first-child{
+     border-top:2px solid var(--LightGreyBorder);
+     border-radius: 0;
+
+}
+.InnerDD:not(.hidden) > :last-child{
+    border-radius:0px 0px 20px 20px;
+    border-bottom:none;
+}
+
+.InnerDD:not(.hidden) button{
+    margin:0;
+    border-radius: 0;
+    border-bottom:0.5px solid var(--LightGreyBorder);
+}

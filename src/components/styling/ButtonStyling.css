@@ -1,12 +1,17 @@
 @import "../../index.css";
 
 .Button {
-  height: 26px;
-  width: 150px;
+  padding:0.5em 1em 0.5em 1em;
   border: none;
   margin: 10px;
   font-weight: 600;
+  display:flex;
 }
 .Button:hover {
   background: var(--MilkyBackgroundHover);
+}
+.Button svg{
+  height: 1.2em;
+  width: 1.2em;
+  padding-right:0.5em;
 }

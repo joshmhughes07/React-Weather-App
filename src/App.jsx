@@ -6,9 +6,12 @@ import { ExtendedForecast } from "./components/ExtendedForecast.jsx"
 import { Modal } from "./components/Modal.jsx"
 import { Loading } from './components/Loading.jsx'
 import { Button } from './components/Button.jsx'
+import { UnitSelection } from './components/UnitSelection.jsx'
 
 
-//mainforecast has more than JUST mainforecast duties (wrong)
+//MOVE THE SETTINGS TO SIT ON THE RIGHT OF MAINFORECAST ON WIDE SCREEN AND UNDER ON NARROW SCREENS (MAYBE A POPUP MENU FROM THE RIGHT)
+
+
 //loading component used when needed using conditional rendering 
 function App() {
   
@@ -92,7 +95,7 @@ function App() {
         </svg>{" "}
         Select City</Button></div>
       ) : (
-      
+      <>
         <MainForecast
           data={weatherData}
           cityName={currentCity?.name}
@@ -100,6 +103,11 @@ function App() {
           handler={handleForecastChange}
           refreshHandler={asyncReq}
         />
+        <UnitSelection
+          dialog={dialog}
+          refreshHandler={asyncReq}
+          />
+        </>
  )}
     {detailedForecastData.length == 0 ? (
         //<PlaceHolder />
