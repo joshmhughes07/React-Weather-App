@@ -11,15 +11,14 @@ import "./styling/UnitSelectionStyling.css"
 import { Button } from "./Button"
 import { useRef,useState } from "react"
 
-const UnitSelection = ({dialog,refreshHandler})=>{
-  let value = 0;
+const UnitSelection = ({dialog,refreshHandler,unitPrefs})=>{
   const TempDD = useRef(null)
   const RainDD = useRef(null)
   const WindDD = useRef(null)
   
-  const [TempPreference,setTempPreference] = useState({name:'Celsuis',value:''})
-  const [RainPreference,setRainPreference] = useState({name:'Millimeter',value:''})
-  const [WindPreference,setWindPreference] = useState({name:'Km/h',value:''})
+  const [TempPreference,setTempPreference] = useState(unitPrefs.current[0].name)
+  const [RainPreference,setRainPreference] = useState(unitPrefs.current[1].name)
+  const [WindPreference,setWindPreference] = useState(unitPrefs.current[2].name)
   //const TempPreference = useRef({name:'Celsuis',value:''})
   //const RainPreference = useRef({name:'Millimeter',value:''})
   //const WindPreference = useRef({name:'Km/h',value:''})
@@ -30,14 +29,16 @@ const UnitSelection = ({dialog,refreshHandler})=>{
   const preferenceUpdater = (type,unit,value)=>{
     switch (type){
         case "Temp":
-            setTempPreference({name:unit,value:value})
-
+            unitPrefs.current[0]={name:unit,value:value}
+            setTempPreference(unit)
             break;
         case "Rain":
-            setRainPreference({name:unit,value:value})
+            unitPrefs.current[1]={name:unit,value:value}
+            setRainPreference(unit)
             break;
         case "Wind":
-            setWindPreference({name:unit,value:value})
+            unitPrefs.current[2]={name:unit,value:value}
+            setWindPreference(unit)
             break
     }
     
@@ -48,28 +49,28 @@ const UnitSelection = ({dialog,refreshHandler})=>{
             <h3>Settings:</h3>
             <label for="TempDD">Temperature Unit:</label>
             <div className="OuterDD Background">
-                <Button className="DDControlButton" onClick={()=>handleDD(TempDD)}>{TempPreference.name}</Button>
+                <Button className="DDControlButton" onClick={()=>handleDD(TempDD)}>{TempPreference}</Button>
                 <div ref={TempDD} className="InnerDD hidden">
                     <Button onClick={()=>{preferenceUpdater("Temp","Celsius",''); handleDD(TempDD)}}>Celsius</Button>
-                    <Button onClick={()=>{preferenceUpdater("Temp","Fahrenheit",'&temperature_unit="fahrenheit"'); handleDD(TempDD)}}>Fahrenheit</Button>
+                    <Button onClick={()=>{preferenceUpdater("Temp","Fahrenheit",'&temperature_unit=fahrenheit'); handleDD(TempDD)}}>Fahrenheit</Button>
                 </div>
             </div>
             <label for="RainDD">Rain Unit:</label>
             <div className="OuterDD Background">
-                <Button className="DDControlButton" onClick={()=>handleDD(RainDD)}>{RainPreference.name}</Button>
+                <Button className="DDControlButton" onClick={()=>handleDD(RainDD)}>{RainPreference}</Button>
                 <div ref={RainDD} className="InnerDD hidden">
                     <Button onClick={()=>{preferenceUpdater("Rain","Millimeter",''); handleDD(RainDD)}}>Millimeter</Button>
-                    <Button onClick={()=>{preferenceUpdater("Rain","Inch",'&precipitation_unit="inch"'); handleDD(RainDD)}}>Inch</Button>
+                    <Button onClick={()=>{preferenceUpdater("Rain","Inch",'&precipitation_unit=inch'); handleDD(RainDD)}}>Inch</Button>
                 </div>
             </div>
             <label for="WindDD">Wind Unit:</label>
             <div className="OuterDD Background">
-                <Button className="DDControlButton" onClick={()=>handleDD(WindDD)}>{WindPreference.name}</Button>
+                <Button className="DDControlButton" onClick={()=>handleDD(WindDD)}>{WindPreference}</Button>
                 <div ref={WindDD} className="InnerDD hidden">
                     <Button onClick={()=>{preferenceUpdater("Wind","Km/h",''); handleDD(WindDD)}}>Km/h</Button>
-                    <Button onClick={()=>{preferenceUpdater("Wind","M/S",'&wind_speed_unit="ms"'); handleDD(WindDD)}}>M/S</Button>
-                    <Button onClick={()=>{preferenceUpdater("Wind","MPH",'&wind_speed_unit="mph"'); handleDD(WindDD)}}>MPH</Button>
-                    <Button onClick={()=>{preferenceUpdater("Wind","Knots",'&wind_speed_unit="kn"'); handleDD(WindDD)}}>Knots</Button>
+                    <Button onClick={()=>{preferenceUpdater("Wind","M/S",'&wind_speed_unit=ms'); handleDD(WindDD)}}>M/S</Button>
+                    <Button onClick={()=>{preferenceUpdater("Wind","MPH",'&wind_speed_unit=mph'); handleDD(WindDD)}}>MPH</Button>
+                    <Button onClick={()=>{preferenceUpdater("Wind","Knots",'&wind_speed_unit=kn'); handleDD(WindDD)}}>Knots</Button>
                 </div>
             </div>
             <div className="ButtonParentDiv">
