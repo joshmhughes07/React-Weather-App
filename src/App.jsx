@@ -88,7 +88,7 @@ function App() {
 
 
   return (
-   <div>
+   <>
     <Modal dialog={dialog} citySetter={citySetter}></Modal>
     {weatherData == null ? (
         <div><Button onClick={()=>dialog.current.showModal()}><svg viewBox="0 0 512 512" width="25%" height="50%" title="flag">
@@ -117,7 +117,7 @@ function App() {
       ) : (
         <ExtendedForecast data={detailedForecastData} />
       )}
-   </div>
+   </>
   )
 }
 

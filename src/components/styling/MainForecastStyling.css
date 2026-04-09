@@ -17,10 +17,11 @@
 .MainForecastParentDiv {
   display: flex;
   width:764px;
-  margin:0px auto;
   border-radius:20px;
   box-shadow:var(--BoxShadowValues);
-  
+  grid-row:2/3;
+  grid-column:1/2;
+  justify-self: end;
 }
 
 .MainForecastParentDiv button {
@@ -48,8 +49,10 @@
 
 .MainForecastHeading{
   padding:10px;
-  margin:5px;
+  margin:5px auto;
   display:flex;
   flex-flow:column wrap;
   align-items:center;
+  grid-row:1/2;
+  grid-column:1/3
 }

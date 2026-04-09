@@ -1,9 +1,12 @@
 .extendedForecastParentDiv{
   display:flex;
   flex-flow:row wrap;
-  margin:10px;
+  
   padding:5px;
   min-width:324px;
+  grid-row:3/4;
+  grid-column:1/3;
+  
 }
 
 .extendedForecastParentDiv h3{

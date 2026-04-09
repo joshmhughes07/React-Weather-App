@@ -13,11 +13,9 @@
 }
 #root{
   min-height:100vh;
-  display:flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-items:start ;
-  margin:5px;
+  display:grid;
+  grid-template: 50px 300px 1fr/ 2fr 1fr;
+  gap:5px;
 }
 
 

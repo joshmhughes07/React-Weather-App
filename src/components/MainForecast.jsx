@@ -29,7 +29,7 @@ const MainForecast = ({ data, cityName ,handler})=>{
   };
     
     return(
-        <div>
+        <>
       <div className="MainForecastHeading Background">
         <h3>
           This is the Weekly Forecast for ({cityName}) ({data.timezone} - {data.timezone_abbreviation})
@@ -81,7 +81,7 @@ const MainForecast = ({ data, cityName ,handler})=>{
           </svg>
         </button>
       </div>
-    </div>
+    </>
     )
 }
 
