@@ -33,7 +33,7 @@ const Modal = ({ dialog, citySetter }) => {
 
 
   return (
-    <div>
+    <>
       <dialog
         className="Background modal locationModal"
         ref={dialog}
@@ -76,7 +76,7 @@ const Modal = ({ dialog, citySetter }) => {
           handler={citySetter}
         />
       </dialog>
-    </div>
+    </>
   );
 };
 

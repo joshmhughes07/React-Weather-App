@@ -8,9 +8,8 @@ import { Loading } from './components/Loading.jsx'
 import { Button } from './components/Button.jsx'
 import { UnitSelection } from './components/UnitSelection.jsx'
 
-
-//MOVE THE SETTINGS TO SIT ON THE RIGHT OF MAINFORECAST ON WIDE SCREEN AND UNDER ON NARROW SCREENS (MAYBE A POPUP MENU FROM THE RIGHT)
-
+//Review dead css code in MainForecast.css
+//CONTINUE BUILDING SMALL SCREEN FIRST THEN MAKE IT GROW TO FIT LARGER SCREENS
 
 //loading component used when needed using conditional rendering 
 function App() {
@@ -89,7 +88,7 @@ function App() {
 
   return (
    <>
-    <Modal dialog={dialog} citySetter={citySetter}></Modal>
+   
     {weatherData == null ? (
         <div><Button onClick={()=>dialog.current.showModal()}><svg viewBox="0 0 512 512" width="25%" height="50%" title="flag">
           <path d="M349.565 98.783C295.978 98.783 251.721 64 184.348 64c-24.955 0-47.309 4.384-68.045 12.013a55.947 55.947 0 0 0 3.586-23.562C118.117 24.015 94.806 1.206 66.338.048 34.345-1.254 8 24.296 8 56c0 19.026 9.497 35.825 24 45.945V488c0 13.255 10.745 24 24 24h16c13.255 0 24-10.745 24-24v-94.4c28.311-12.064 63.582-22.122 114.435-22.122 53.588 0 97.844 34.783 165.217 34.783 48.169 0 86.667-16.294 122.505-40.858C506.84 359.452 512 349.571 512 339.045v-243.1c0-23.393-24.269-38.87-45.485-29.016-34.338 15.948-76.454 31.854-116.95 31.854z" />
@@ -111,6 +110,7 @@ function App() {
           />
         </>
  )}
+     <Modal dialog={dialog} citySetter={citySetter}></Modal>
     {detailedForecastData.length == 0 ? (
         //<PlaceHolder />
         <div></div>

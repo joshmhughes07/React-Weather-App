@@ -1,7 +1,7 @@
 .MainForecastDiv {
   background: var(--MilkyBackground);
-  height: 300px;
-  width: 660px;
+  height: 100%;
+  width: 220px;
   overflow-y: auto;
   display: flex;
   align-items: center;
@@ -9,19 +9,24 @@
   scrollbar-width:none;
   
 }
-
+@container containerQuery (width>=544px){
+  .MainForecastDiv{
+    width:440px;
+  }
+}
+@container containerQuery (width>=764px){
+  .MainForecastDiv{
+    width:660px;
+  }
+}
 .MainForecastDiv::-webkit-scrollbar{
   display:none;
 }
 
 .MainForecastParentDiv {
   display: flex;
-  width:764px;
   border-radius:20px;
   box-shadow:var(--BoxShadowValues);
-  grid-row:2/3;
-  grid-column:1/2;
-  justify-self: end;
 }
 
 .MainForecastParentDiv button {
@@ -35,18 +40,6 @@
   border-radius: 0px 20px 20px 0px;
 }
 
-@media screen and (max-width:810px){
-  .MainForecastParentDiv{
-    width:544px;
-  }
-}
-
-@media screen and (max-width:590px){
-  .MainForecastParentDiv{
-    width:324px;
-  }
-}
-
 .MainForecastHeading{
   padding:10px;
   margin:5px auto;
@@ -54,5 +47,12 @@
   flex-flow:column wrap;
   align-items:center;
   grid-row:1/2;
-  grid-column:1/3
+  grid-column:1/-1;
+}
+.containerQuery{
+  display:flex;
+  justify-content: center;
+   width:100%;
+   height:300px;
+   container: containerQuery / inline-size;
 }

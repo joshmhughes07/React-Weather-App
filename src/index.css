@@ -11,16 +11,27 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
 }
+
+
+
 #root{
   min-height:100vh;
   display:grid;
-  grid-template: 50px 300px 1fr/ 2fr 1fr;
+  grid-template: repeat(4,auto) 1fr / 100vw;
   gap:5px;
+  overflow-x:hidden;
+  justify-items:center;
+}
+@media screen and (min-width:900px){
+  #root{
+    background-color: pink;
+    grid-template:repeat(3,auto) 1fr/ 50vw 50vw;
+  }
 }
 
 
-
 * {
+  
   box-sizing: border-box;
   margin: 0;
   font-family: helvetica;
