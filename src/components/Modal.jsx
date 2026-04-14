@@ -35,7 +35,7 @@ const Modal = ({ dialog, citySetter }) => {
   return (
     <>
       <dialog
-        className="Background modal locationModal"
+        className="locationModal modal"
         ref={dialog}
         closedby="any"
       >

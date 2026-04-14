@@ -1,9 +1,13 @@
+@import "../../index.css";
+
 .locationModal{
+  border-radius:20px;
+  box-shadow:var(--BoxShadowValues);
   border:none;
   margin-left:auto;
   margin-right:auto;
   overflow:hidden;
-  background:var(--OpagueMilkyBackground);
+  background-color:var(--OpagueMilkyBackground);
   grid-row:2/3;
 }
 .locationModal[open]{
