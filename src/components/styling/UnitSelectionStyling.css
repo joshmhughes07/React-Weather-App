@@ -6,6 +6,12 @@
     justify-content: space-evenly;
     padding:2%;
     width:95%;
+    
+}
+@media screen and (min-width:900px){
+    .unitSelection{
+        justify-self: start;
+    }
 }
 
 .OuterDD{

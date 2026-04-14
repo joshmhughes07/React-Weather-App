@@ -8,10 +8,9 @@ import { Loading } from './components/Loading.jsx'
 import { Button } from './components/Button.jsx'
 import { UnitSelection } from './components/UnitSelection.jsx'
 
-//Review dead css code in MainForecast.css
-//CONTINUE BUILDING SMALL SCREEN FIRST THEN MAKE IT GROW TO FIT LARGER SCREENS
 
-//loading component used when needed using conditional rendering 
+
+
 function App() {
   
    const [weatherData, setWeatherData] = useState(null);

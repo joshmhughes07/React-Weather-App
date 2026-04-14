@@ -21,10 +21,10 @@
   gap:5px;
   overflow-x:hidden;
   justify-items:center;
+  min-width:320px;
 }
 @media screen and (min-width:900px){
   #root{
-    background-color: pink;
     grid-template:repeat(3,auto) 1fr/ 50vw 50vw;
   }
 }
