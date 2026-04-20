@@ -1,4 +1,4 @@
-import { useState,useRef,useEffect,use,Suspense } from 'react'
+import { useState,useRef,useEffect} from 'react'
 import './App.css'
 import { MainForecast } from "./components/MainForecast.jsx"
 import { PlaceHolder } from "./components/Placeholder.jsx"
@@ -7,17 +7,19 @@ import { Modal } from "./components/Modal.jsx"
 import { Loading } from './components/Loading.jsx'
 import { Button } from './components/Button.jsx'
 import { UnitSelection } from './components/UnitSelection.jsx'
+import { ThemeContext } from './components/Context.jsx'
 
 
 
 
 function App() {
   
-   const [weatherData, setWeatherData] = useState(null);
+  const [weatherData, setWeatherData] = useState(null);
   const [detailedForecastData, setDetailedForecastData] = useState([]);
   const [currentCity, setCurrentCity] = useState();
   const unitPrefs = useRef([{name:'Celsuis',value:''},{name:'Millimeter',value:''},{name:'Km/h',value:''}])
   const dialog = useRef(null);
+  const [themePref,setThemePref] = useState("light")
   console.log(currentCity);
 
   const handleForecastChange = (date) => {
@@ -87,7 +89,7 @@ function App() {
 
   return (
    <>
-   
+   <ThemeContext value={themePref}>
     {weatherData == null ? (
         <div className="noPrevCityComp">
           <h3>No Previous Selected City Found</h3>
@@ -109,6 +111,7 @@ function App() {
           dialog={dialog}
           refreshHandler={asyncReq}
           unitPrefs={unitPrefs}
+          themeBool={themePref}
           />
         </>
  )}
@@ -119,6 +122,7 @@ function App() {
       ) : (
         <ExtendedForecast data={detailedForecastData} />
       )}
+      </ThemeContext>
    </>
   )
 }

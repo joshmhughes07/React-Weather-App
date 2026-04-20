@@ -1,8 +1,11 @@
 import { DailyTile } from "./DailyTile.jsx"
-import { useRef,useEffect } from "react";
+import { useRef,useEffect,useContext } from "react";
+import { ThemeContext } from "./Context.jsx";
+
 import "./styling/MainForecastStyling.css";
 
 const MainForecast = ({ data, cityName ,handler})=>{
+  const theme = useContext(ThemeContext);
     const MainForecastScrollBox = useRef(null);
     
     // //Resets the scroll to 0 for every render
@@ -30,6 +33,7 @@ const MainForecast = ({ data, cityName ,handler})=>{
     
     return(
         <>
+        {console.log("CONTEXT: " + theme)}
       <div className="MainForecastHeading Background">
         <h3>
           This is the Weekly Forecast for ({cityName}) ({data.timezone} - {data.timezone_abbreviation})
