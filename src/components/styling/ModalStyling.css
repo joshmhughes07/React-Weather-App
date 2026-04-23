@@ -1,4 +1,4 @@
-@import "../../index.css";
+
 
 .locationModal{
   border-radius:20px;
@@ -7,8 +7,11 @@
   margin-left:auto;
   margin-right:auto;
   overflow:hidden;
-  background-color:var(--OpagueMilkyBackground);
   grid-row:2/3;
+  
+}
+.locationModal.DarkBackground{
+  background:var(--OpagueDarkBackground)
 }
 .locationModal[open]{
   display:flex;
@@ -62,6 +65,7 @@
   background:var(--MilkyBackground);
   margin:5px auto;
   overflow:auto;
+  color:black;
 }
 .city{
   border:0.25px solid grey;

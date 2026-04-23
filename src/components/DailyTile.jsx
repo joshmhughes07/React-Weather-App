@@ -1,4 +1,6 @@
+import { ThemeContext } from "./Context";
 import "./styling/DailyTileStyling.css"
+import { useContext } from "react";
 
 const DailyTile = ({
   tempInfo,
@@ -375,10 +377,10 @@ const DailyTile = ({
       </svg>
     )
   };
-
+  const Theme = useContext(ThemeContext)
   return (
     <div
-      className="DailyForecastTile"
+      className={`DailyForecastTile Background`}
       onClick={() => {
         clickHandler(date);
       }}
@@ -386,7 +388,7 @@ const DailyTile = ({
       <h3>{isToday ? "Today" : date[0]}</h3>
       {indexOfIcons[weatherCode[0]]}
 
-      <div className="DailyForecastInner">
+      <div className={`DailyForecastInner `}>
         <div>
           <svg
             viewBox="0 0 512 512"

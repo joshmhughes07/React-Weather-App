@@ -1,20 +1,16 @@
 //An area where the unit selection and future settings will be
 
-
-
-
-//THEN CHANGE USEREF TO STORE THE VALUES WITHOUT CAUSING RENDERS UNTIL THE RELOAD DATA BUTTON IS PRESSED
-//THEN TAKE THE VALUES FOR THE API CALL
-
-
 import "./styling/UnitSelectionStyling.css"
 import { Button } from "./Button"
-import { useRef,useState } from "react"
+import { useRef,useState,useContext } from "react"
+import { ThemeContext } from "./Context"
 
-const UnitSelection = ({dialog,refreshHandler,unitPrefs,themeBool})=>{
+const UnitSelection = ({dialog,refreshHandler,unitPrefs,changeTheme})=>{
+  const Theme = useContext(ThemeContext)
   const TempDD = useRef(null)
   const RainDD = useRef(null)
   const WindDD = useRef(null)
+  const ThemeToggle = useRef(null)
   
   const [TempPreference,setTempPreference] = useState(unitPrefs.current[0].name)
   const [RainPreference,setRainPreference] = useState(unitPrefs.current[1].name)
@@ -45,10 +41,10 @@ const UnitSelection = ({dialog,refreshHandler,unitPrefs,themeBool})=>{
   }
     return (
        
-        <div className="unitSelection Background">
+        <div className={`unitSelection ${Theme}`}>
             <h3>Settings:</h3>
             <label for="TempDD">Temperature Unit:</label>
-            <div className="OuterDD Background">
+            <div className={`OuterDD ${Theme}`}>
                 <Button className="DDControlButton" onClick={()=>handleDD(TempDD)}>{TempPreference}</Button>
                 <div ref={TempDD} className="InnerDD hidden">
                     <Button onClick={()=>{preferenceUpdater("Temp","Celsius",''); handleDD(TempDD)}}>Celsius</Button>
@@ -56,7 +52,7 @@ const UnitSelection = ({dialog,refreshHandler,unitPrefs,themeBool})=>{
                 </div>
             </div>
             <label for="RainDD">Rain Unit:</label>
-            <div className="OuterDD Background">
+            <div className={`OuterDD ${Theme}`}>
                 <Button className="DDControlButton" onClick={()=>handleDD(RainDD)}>{RainPreference}</Button>
                 <div ref={RainDD} className="InnerDD hidden">
                     <Button onClick={()=>{preferenceUpdater("Rain","Millimeter",''); handleDD(RainDD)}}>Millimeter</Button>
@@ -64,7 +60,7 @@ const UnitSelection = ({dialog,refreshHandler,unitPrefs,themeBool})=>{
                 </div>
             </div>
             <label for="WindDD">Wind Unit:</label>
-            <div className="OuterDD Background">
+            <div className={`OuterDD ${Theme}`}>
                 <Button className="DDControlButton" onClick={()=>handleDD(WindDD)}>{WindPreference}</Button>
                 <div ref={WindDD} className="InnerDD hidden">
                     <Button onClick={()=>{preferenceUpdater("Wind","Km/h",''); handleDD(WindDD)}}>Km/h</Button>
@@ -85,10 +81,9 @@ const UnitSelection = ({dialog,refreshHandler,unitPrefs,themeBool})=>{
         </svg>{" "}
         Refresh Data
       </Button>
-      
         <div className="outerToggle">
-            <input type="checkbox" id="toggleId" onChange={()=>console.log("Test")} className="toggleTheme hidden"></input>
-            <label for="toggleId" className="toggleLabel"><svg viewBox="0 0 512 512" width="60%" stroke="#000000" stroke-width="20" fill="none" height="100%" title="moon"><path d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z" /></svg></label>
+            <input type="checkbox" id="toggleId" ref={ThemeToggle} onChange={()=>changeTheme(ThemeToggle.current.checked)} className="toggleTheme hidden"></input>
+            <label for="toggleId" className="toggleLabel"><svg viewBox="0 0 512 512" width="60%" stroke="#000000" strokeWidth="20" fill="none" height="100%" title="moon"><path d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z" /></svg></label>
         </div>
        
       <Button
@@ -105,34 +100,7 @@ const UnitSelection = ({dialog,refreshHandler,unitPrefs,themeBool})=>{
         </div>
         </div>
 
-         /*<div className="unitSelection Background">
-            <div className="UnitSelector">
-                <label for="TempTypeSelector">
-                    <select id="TempTypeSelector" class="selectors">
-                        <option class="options" value="">Celsius</option>
-                        <option class="options" value='&temperature_unit="FahrenHeit"'>Fahrenheit</option>
-                    </select>
-                </label>
-            </div>
-              <div className="UnitSelector">
-                <label for="RainTypeSelector">
-                    <select id="RainTypeSelector" class="selectors">
-                        <option value="">Millimeter</option>
-                        <option value='&precipitation_unit="inch"'>Inch</option>
-                    </select>
-                </label>
-            </div>
-               <div className="UnitSelector">
-                <label for="WindTypeSelector">
-                    <select id="WindTypeSelector" class="selectors">
-                        <option value="">km/h</option>
-                        <option value='&wind_speed_unit="ms"'>m/s</option>
-                        <option value='&wind_speed_unit="mph"'>mph</option>
-                        <option value='&wind_speed_unit="kn"'>knots</option>
-                    </select>
-                </label>
-            </div>
-            </div>*/
+         
     )
 }
 

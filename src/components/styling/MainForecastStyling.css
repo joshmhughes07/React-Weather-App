@@ -1,10 +1,9 @@
 .MainForecastDiv {
-  background: var(--MilkyBackground);
+  border-radius: 0;
   height: 100%;
   width: 220px;
   overflow-y: auto;
   display: flex;
-  /* align-items: center; */
   -ms-overflow-style:none;
   scrollbar-width:none;
   
@@ -30,9 +29,13 @@
 }
 
 .MainForecastParentDiv button {
-  background: var(--MilkyBackground);
+  /* background: var(--MilkyBackground); */
   border: none;
 }
+.MainForecastParentDiv.DarkBackground button svg path{
+  fill:lightgrey;
+}
+
 .MainForecastParentDiv .left {
   border-radius: 20px 0px 0px 20px;
 }
@@ -52,6 +55,8 @@
 .containerQuery{
   display:flex;
   justify-content: center;
+  margin-top:auto;
+  margin-bottom:auto;
    width:100%;
    height:300px;
    container: containerQuery / inline-size;

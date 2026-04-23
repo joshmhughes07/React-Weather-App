@@ -10,3 +10,27 @@
   margin:auto;
 
 }
+
+.rootDiv{
+  min-height:100vh;
+  display:grid;
+  grid-template: repeat(4,auto) 1fr / 100vw;
+  gap:5px;
+  overflow-x:hidden;
+  justify-items:center;
+  min-width:320px;
+
+  
+}
+.darkmode{
+  background: linear-gradient(200deg, rgb(49, 49, 49), rgb(69, 70, 70));
+}
+.lightmode{
+   background: linear-gradient(200deg, lightblue, rgb(133, 176, 180));
+}
+
+@media screen and (min-width:900px){
+  .rootDiv{
+    grid-template:repeat(3,auto) 1fr/ 50vw 50vw;
+  }
+}

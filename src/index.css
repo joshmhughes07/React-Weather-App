@@ -5,29 +5,24 @@
   --BoxShadowValues:0px 0px 5px var(--MilkyBackground);
   --OpagueMilkyBackground:rgb(215, 222, 224);
   --LightGreyBorder:rgb(161, 160, 160);
-  /* color-scheme: light dark; */
+
+  --DarkBackground:rgba(110, 106, 106, 0.6);
+  --DarkBackgroundHover:rgba(80, 77, 77, 0.6);
+  --DarkBoxShadowValues:0px 0px 5px var(--DarkBackground);
+  --OpagueDarkBackground:rgb(110,106,106);
+  --DarkGreyBorder:rgb(34, 33, 33);
+
+
+  color-scheme: light dark;
   /* font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
+
+
 }
 
 
-
-#root{
-  min-height:100vh;
-  display:grid;
-  grid-template: repeat(4,auto) 1fr / 100vw;
-  gap:5px;
-  overflow-x:hidden;
-  justify-items:center;
-  min-width:320px;
-}
-@media screen and (min-width:900px){
-  #root{
-    grid-template:repeat(3,auto) 1fr/ 50vw 50vw;
-  }
-}
 
 
 * {
@@ -36,10 +31,12 @@
   margin: 0;
   font-family: helvetica;
 }
-
+/* 
 body {
    background: linear-gradient(200deg, lightblue, rgb(133, 176, 180));
-}
+   background: linear-gradient(200deg, rgb(49, 49, 49), rgb(69, 70, 70));
+} */
+
 
 .Background{
   border-radius:20px;
@@ -47,6 +44,12 @@ body {
   background:var(--MilkyBackground);
 }
 
+.DarkBackground{
+  border-radius:20px;
+  box-shadow:var(--DarkBoxShadowValues);
+  background:var(--DarkBackground);
+  color:white
+}
 
 
 .ButtonParentDiv{

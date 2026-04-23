@@ -1,11 +1,12 @@
-import { useState,useRef, useEffect} from "react";
+import { useState,useRef, useEffect,useContext} from "react";
 import "./styling/ModalStyling.css"
 import { Loading } from "./Loading";
-
+import { ThemeContext } from "./Context";
 
 const Modal = ({ dialog, citySetter }) => {
   const [searchResults, setSearchResults] = useState({ results: [] });
   const inputEl = useRef(null)
+  const Theme = useContext(ThemeContext)
 
   const handleSearch = (event) => {
     asyncSearch(event.target.value);
@@ -35,7 +36,7 @@ const Modal = ({ dialog, citySetter }) => {
   return (
     <>
       <dialog
-        className="locationModal modal"
+        className={`locationModal modal ${Theme}`}
         ref={dialog}
         closedby="any"
       >

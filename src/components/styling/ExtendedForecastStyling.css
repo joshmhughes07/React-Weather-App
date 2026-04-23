@@ -1,3 +1,5 @@
+
+
 .extendedForecastParentDiv{
   width:95%;
   padding:5px;
@@ -12,9 +14,13 @@
 }
 
 .graphCanvasDiv{
-  margin:10px;
+  margin:5px;
   width:90%;
   margin:3% auto;
+  padding:10px;
+}
+.graphCanvasDiv:hover{
+  background:rgba(255, 255, 255, 0.5)
 }
 
 .canvasEl{

@@ -5,7 +5,7 @@ import { ThemeContext } from "./Context.jsx";
 import "./styling/MainForecastStyling.css";
 
 const MainForecast = ({ data, cityName ,handler})=>{
-  const theme = useContext(ThemeContext);
+  const Theme = useContext(ThemeContext);
     const MainForecastScrollBox = useRef(null);
     
     // //Resets the scroll to 0 for every render
@@ -33,15 +33,14 @@ const MainForecast = ({ data, cityName ,handler})=>{
     
     return(
         <>
-        {console.log("CONTEXT: " + theme)}
-      <div className="MainForecastHeading Background">
+      <div className={`MainForecastHeading ${Theme}`}>
         <h3>
           This is the Weekly Forecast for ({cityName}) ({data.timezone} - {data.timezone_abbreviation})
         </h3>
       </div>
       <div className="containerQuery">
-      <div className="MainForecastParentDiv">
-        <button className="left" onClick={() => scroller("left")}>
+      <div className={`MainForecastParentDiv ${Theme}`}>
+        <button className={`left ${Theme}`} onClick={() => scroller("left")}>
           <svg
             viewBox="0 0 256 512"
             width="40"
@@ -52,7 +51,7 @@ const MainForecast = ({ data, cityName ,handler})=>{
           </svg>
         </button>
       
-        <div className="MainForecastDiv" ref={MainForecastScrollBox}>
+        <div className={`MainForecastDiv ${Theme} `} ref={MainForecastScrollBox}>
           {data.daily.time.map((day, index) => (
             <DailyTile key={index}
               tempInfo={[
@@ -76,7 +75,7 @@ const MainForecast = ({ data, cityName ,handler})=>{
             />
           ))}
         </div>
-        <button className="right" onClick={() => scroller("right")}>
+        <button className={`right ${Theme}`} onClick={() => scroller("right")}>
           <svg
             viewBox="0 0 256 512"
             width="40"

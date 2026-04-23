@@ -1,4 +1,4 @@
-import { useState,useRef,useEffect} from 'react'
+import { useState,useRef,useEffect,useContext} from 'react'
 import './App.css'
 import { MainForecast } from "./components/MainForecast.jsx"
 import { PlaceHolder } from "./components/Placeholder.jsx"
@@ -19,8 +19,13 @@ function App() {
   const [currentCity, setCurrentCity] = useState();
   const unitPrefs = useRef([{name:'Celsuis',value:''},{name:'Millimeter',value:''},{name:'Km/h',value:''}])
   const dialog = useRef(null);
-  const [themePref,setThemePref] = useState("light")
+  const [themePref,setThemePref] = useState("Background")
   console.log(currentCity);
+
+  const changeTheme = (isChecked)=>{
+    console.log("HELLO FROM CHANGE THEME" , isChecked)
+    isChecked? setThemePref("DarkBackground"):setThemePref("Background")
+  }
 
   const handleForecastChange = (date) => {
     let dayAndTime = weatherData.hourly.time.map((dayTime) =>
@@ -85,11 +90,11 @@ function App() {
     }
   }, [currentCity]);
 
-
-
+//MAYBE NO THEME CHANGE EXCEPT FOR THE BACKGROUND AND THE DIFFERENT LAYERS STACK TO MAKE DIFFERING COLORS 
+//OR REWORK THE MAINFORECAST STYLING TO USE THE DARKBACKGROUND AND BACKGROUND CLASSES
   return (
-   <>
    <ThemeContext value={themePref}>
+   <div className={`rootDiv ${themePref==="DarkBackground" ? "darkmode":"lightmode"}`}>
     {weatherData == null ? (
         <div className="noPrevCityComp">
           <h3>No Previous Selected City Found</h3>
@@ -111,7 +116,7 @@ function App() {
           dialog={dialog}
           refreshHandler={asyncReq}
           unitPrefs={unitPrefs}
-          themeBool={themePref}
+          changeTheme={changeTheme}
           />
         </>
  )}
@@ -122,8 +127,9 @@ function App() {
       ) : (
         <ExtendedForecast data={detailedForecastData} />
       )}
+      
+   </div>
       </ThemeContext>
-   </>
   )
 }
 
