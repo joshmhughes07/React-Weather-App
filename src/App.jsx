@@ -1,7 +1,6 @@
 import { useState,useRef,useEffect,useContext} from 'react'
 import './App.css'
 import { MainForecast } from "./components/MainForecast.jsx"
-import { PlaceHolder } from "./components/Placeholder.jsx"
 import { ExtendedForecast } from "./components/ExtendedForecast.jsx"
 import { Modal } from "./components/Modal.jsx"
 import { Loading } from './components/Loading.jsx'
