@@ -9,7 +9,8 @@ import { Button } from './components/Button.jsx'
 import { UnitSelection } from './components/UnitSelection.jsx'
 import { ThemeContext } from './components/Context.jsx'
 
-
+//CREATE LOCALSTORAGE FOR THEME PREF
+//FIX THE PAST CITIES PREF USING LOCALSTORAGE 
 
 
 function App() {
@@ -19,11 +20,12 @@ function App() {
   const [currentCity, setCurrentCity] = useState();
   const unitPrefs = useRef([{name:'Celsuis',value:''},{name:'Millimeter',value:''},{name:'Km/h',value:''}])
   const dialog = useRef(null);
-  const [themePref,setThemePref] = useState("Background")
+  const [themePref,setThemePref] = useState(localStorage.getItem("WeatherAppThemePref"))
   console.log(currentCity);
 
   const changeTheme = (isChecked)=>{
     console.log("HELLO FROM CHANGE THEME" , isChecked)
+    isChecked? localStorage.setItem("WeatherAppThemePref","DarkBackground"):localStorage.setItem("WeatherAppThemePref","Background")
     isChecked? setThemePref("DarkBackground"):setThemePref("Background")
   }
 
@@ -90,13 +92,11 @@ function App() {
     }
   }, [currentCity]);
 
-//MAYBE NO THEME CHANGE EXCEPT FOR THE BACKGROUND AND THE DIFFERENT LAYERS STACK TO MAKE DIFFERING COLORS 
-//OR REWORK THE MAINFORECAST STYLING TO USE THE DARKBACKGROUND AND BACKGROUND CLASSES
   return (
    <ThemeContext value={themePref}>
    <div className={`rootDiv ${themePref==="DarkBackground" ? "darkmode":"lightmode"}`}>
     {weatherData == null ? (
-        <div className="noPrevCityComp">
+        <div className={`noPrevCityComp ${themePref}`}>
           <h3>No Previous Selected City Found</h3>
           <div>
           <Button onClick={()=>dialog.current.showModal()}><svg viewBox="0 0 512 512" width="25%" height="50%" title="flag">
@@ -122,7 +122,6 @@ function App() {
  )}
      <Modal dialog={dialog} citySetter={citySetter}></Modal>
     {detailedForecastData.length == 0 ? (
-        //<PlaceHolder />
         <div></div>
       ) : (
         <ExtendedForecast data={detailedForecastData} />

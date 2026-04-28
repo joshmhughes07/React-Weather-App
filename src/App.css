@@ -4,11 +4,16 @@
   align-self: center;
   display:flex;
   flex-flow: column wrap;
+  text-align:center;
 }
 .noPrevCityComp div{
   display:flex;
   margin:auto;
 
+
+}
+.noPrevCityComp h3{
+  margin:3%;
 }
 
 .rootDiv{
