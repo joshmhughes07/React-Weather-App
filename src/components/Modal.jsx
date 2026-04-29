@@ -1,5 +1,6 @@
 import { useState,useRef, useEffect,useContext} from "react";
 import "./styling/ModalStyling.css"
+import { Loading } from "./Loading";
 import { ThemeContext } from "./Context";
 
 const Modal = ({ dialog, citySetter }) => {
