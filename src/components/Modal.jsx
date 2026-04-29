@@ -23,6 +23,7 @@ const Modal = ({ dialog, citySetter }) => {
       }
     } catch (error) {
       console.log(error);
+      setSearchResults({results:[{name:error.message,error:true}]})
     }
   };
    useEffect(()=>{
@@ -82,15 +83,17 @@ const Modal = ({ dialog, citySetter }) => {
 };
 
 const CityListArea = ({ cities, modalRef, handler }) => {
-  //needs a variable that calls use(asyncSearch(cities)) which shuold 
+
   const handleCitySelect = (city) => {
     handler(city);
     modalRef.current.close();
   };
 
   return (
+ 
     cities?<div className="CityList">
-      {cities?.map((entry,index) => (
+      {cities[0]?.error?<div className="locationModalError"><h4>{cities[0]?.name}</h4></div>:
+        cities.map((entry,index) => (
         <div className="city" key={index} onClick={() => handleCitySelect(entry)}>
           <h5>{entry.name}</h5>
           <div className="cityInfo">
@@ -99,7 +102,7 @@ const CityListArea = ({ cities, modalRef, handler }) => {
           </div>
         </div>
       ))}
-    </div>:<Loading/>
+    </div>:<div className="locationModalError"><h4>No Results</h4></div>
   );
 };
 

@@ -8,9 +8,6 @@ import { Button } from './components/Button.jsx'
 import { UnitSelection } from './components/UnitSelection.jsx'
 import { ThemeContext } from './components/Context.jsx'
 
-//CREATE LOCALSTORAGE FOR THEME PREF
-//FIX THE PAST CITIES PREF USING LOCALSTORAGE 
-
 
 function App() {
   
@@ -23,7 +20,6 @@ function App() {
   console.log(currentCity);
 
   const changeTheme = (isChecked)=>{
-    console.log("HELLO FROM CHANGE THEME" , isChecked)
     isChecked? localStorage.setItem("WeatherAppThemePref","DarkBackground"):localStorage.setItem("WeatherAppThemePref","Background")
     isChecked? setThemePref("DarkBackground"):setThemePref("Background")
   }
@@ -71,11 +67,11 @@ function App() {
       }
       // throw new Error("Error with request");
     } catch (error) {
-      console.log(error);
+      console.log("MY ERROR",error);
     }
   };
   useEffect(() => {  
-    if (localStorage.getItem("weatherDataCity")==true) { 
+    if (localStorage.getItem("weatherDataCity")) { 
       console.log("Previously Selected City Found. " + localStorage.getItem('weatherDataCity'));
       setCurrentCity(JSON.parse(localStorage.getItem("weatherDataCity")));
     } else {
@@ -85,8 +81,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("weatherDataCity", JSON.stringify(currentCity));
+   
     if (currentCity) {
+         localStorage.setItem("weatherDataCity", JSON.stringify(currentCity));
       asyncReq();
     }
   }, [currentCity]);
