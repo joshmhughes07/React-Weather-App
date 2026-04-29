@@ -31,12 +31,6 @@
   margin: 0;
   font-family: helvetica;
 }
-/* 
-body {
-   background: linear-gradient(200deg, lightblue, rgb(133, 176, 180));
-   background: linear-gradient(200deg, rgb(49, 49, 49), rgb(69, 70, 70));
-} */
-
 
 .Background{
   border-radius:20px;
@@ -61,20 +55,3 @@ body {
 .hidden{
   display:none;
 }
-
-
-
-
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */

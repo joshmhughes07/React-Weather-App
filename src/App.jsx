@@ -3,7 +3,6 @@ import './App.css'
 import { MainForecast } from "./components/MainForecast.jsx"
 import { ExtendedForecast } from "./components/ExtendedForecast.jsx"
 import { Modal } from "./components/Modal.jsx"
-import { Loading } from './components/Loading.jsx'
 import { Button } from './components/Button.jsx'
 import { UnitSelection } from './components/UnitSelection.jsx'
 import { ThemeContext } from './components/Context.jsx'
@@ -17,7 +16,6 @@ function App() {
   const unitPrefs = useRef([{name:'Celsuis',value:''},{name:'Millimeter',value:''},{name:'Km/h',value:''}])
   const dialog = useRef(null);
   const [themePref,setThemePref] = useState(localStorage.getItem("WeatherAppThemePref"))
-  console.log(currentCity);
 
   const changeTheme = (isChecked)=>{
     isChecked? localStorage.setItem("WeatherAppThemePref","DarkBackground"):localStorage.setItem("WeatherAppThemePref","Background")
@@ -62,17 +60,14 @@ function App() {
         setWeatherData(null)
       if (response.ok) {
         const myResponse = await response.json();
-        console.log(myResponse);
         setWeatherData(myResponse);
       }
-      // throw new Error("Error with request");
     } catch (error) {
       console.log("MY ERROR",error);
     }
   };
   useEffect(() => {  
     if (localStorage.getItem("weatherDataCity")) { 
-      console.log("Previously Selected City Found. " + localStorage.getItem('weatherDataCity'));
       setCurrentCity(JSON.parse(localStorage.getItem("weatherDataCity")));
     } else {
       //No previous Cities. Open city selection screen

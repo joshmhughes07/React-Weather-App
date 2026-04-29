@@ -29,7 +29,6 @@
 }
 
 .MainForecastParentDiv button {
-  /* background: var(--MilkyBackground); */
   border: none;
 }
 .MainForecastParentDiv.DarkBackground button svg path{
