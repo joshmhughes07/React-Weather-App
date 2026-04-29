@@ -21,12 +21,12 @@ const MainForecast = ({ data, cityName ,handler})=>{
     direction == "left"
       ? MainForecastScrollBox.current.scrollTo({
           top: 0,
-          left: MainForecastScrollBox.current.scrollLeft - 220,
+          left: MainForecastScrollBox.current.scrollLeft - 222,
           behavior: "smooth"
         })
       : MainForecastScrollBox.current.scrollTo({
           top: 0,
-          left: MainForecastScrollBox.current.scrollLeft + 220,
+          left: MainForecastScrollBox.current.scrollLeft + 222,
           behavior: "smooth"
         });
   };

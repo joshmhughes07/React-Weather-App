@@ -1,7 +1,7 @@
 .MainForecastDiv {
   border-radius: 0;
   height: 100%;
-  width: 220px;
+  width: 222px;
   overflow-y: auto;
   display: flex;
   -ms-overflow-style:none;
