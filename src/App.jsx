@@ -15,8 +15,8 @@ function App() {
   const [currentCity, setCurrentCity] = useState();
   const unitPrefs = useRef([{name:'Celsuis',value:''},{name:'Millimeter',value:''},{name:'Km/h',value:''}])
   const dialog = useRef(null);
-  const [themePref,setThemePref] = useState(localStorage.getItem("WeatherAppThemePref"))
-
+  const [themePref,setThemePref] = useState(localStorage.getItem("WeatherAppThemePref")||"Background")
+  console.log("THEME",themePref)
   const changeTheme = (isChecked)=>{
     isChecked? localStorage.setItem("WeatherAppThemePref","DarkBackground"):localStorage.setItem("WeatherAppThemePref","Background")
     isChecked? setThemePref("DarkBackground"):setThemePref("Background")

@@ -8,7 +8,7 @@
   margin-right:auto;
   overflow:hidden;
   grid-row:2/3;
-  
+  /* background:var(--MilkyBackground); */
 }
 .locationModal.DarkBackground{
   background:var(--OpagueDarkBackground)
