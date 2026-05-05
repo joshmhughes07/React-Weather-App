@@ -13,6 +13,6 @@ Dependencies:
 React 
 Vite 
 npm
-react-chart-js
+react-chart-js 
 
 
