@@ -1,6 +1,6 @@
 {
   "name": "my-react-app",
-  "private": false,
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "homepage":"https://joshmhughes07.github.io/React-Weather-App",
