@@ -7,7 +7,7 @@ This is a simple but easy to use weather app that shows the next weeks weather (
 Clicking on a day tile brings up expanded graphs built using react-chart-js
 
 The Live Version is hosted on github pages here :https://joshmhughes07.github.io/React-Weather-App/
-
+No dependencies required to run the live version
 
 
 Dependencies:
