@@ -39,7 +39,7 @@ const MainForecast = ({ data, cityName ,handler})=>{
         </h3>
       </div>
       <div className="containerQuery">
-      <div className={`MainForecastParentDiv ${Theme}`}>
+      <div className={`MainForecastParentDiv`}>
         <button className={`left ${Theme}`} onClick={() => scroller("left")}>
           <svg
             viewBox="0 0 256 512"
